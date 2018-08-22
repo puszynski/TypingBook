@@ -7,7 +7,8 @@ using Dapper;
 namespace DALLibrary.Services
 {
     /// <summary>
-    /// Using SQLite DB and Dapper ORM
+    /// Using SQLite DB and Dapper ORM; More about the Dapper(king ): http://dapper-tutorial.net 
+    /// Entity Framework can be used too but its slower: https://docs.microsoft.com/pl-pl/ef/core/get-started/netcore/new-db-sqlite
     /// </summary>
     public class BookRepository : IBookRepository
     {
@@ -32,6 +33,6 @@ namespace DALLibrary.Services
                 return output;
             }
         }
+
     }
 }
-// SPRAWDŹ NOWĄ MOŻLIWOŚĆ ŁĄCZENIA SIĘ PRZEZ COR`A : https://docs.microsoft.com/pl-pl/ef/core/get-started/netcore/new-db-sqlite

@@ -6,9 +6,6 @@ using Microsoft.AspNetCore.Mvc;
 
 namespace Web.Controllers
 {
-    /// <summary>
-    /// Zwróæ uwagê ¿e ten kontroller pe³ni funkcjê API! Po prostu u¿yj rozwi¹zania w jaki Angular komunikuje siê z tym api :)
-    /// </summary>
     [Route("api/[controller]")]
     public class SampleDataController : Controller
     {

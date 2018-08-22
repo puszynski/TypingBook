@@ -27,6 +27,7 @@ namespace API
         public void ConfigureServices(IServiceCollection services)
         {
             services.AddMvc();
+            services.AddCors(); // umożliwia dostęp do danych z zewn. projektów
             services.AddSingleton(typeof(IBookRepository), _bookRepository);
         }
 
@@ -37,6 +38,8 @@ namespace API
             {
                 app.UseDeveloperExceptionPage();
             }
+
+            app.UseCors(builder => builder.WithOrigins("http://localhost:5000").AllowAnyHeader()); // podpięcie pod witrynę, API dostępne globalnie, w innym wypadku może kontrolować dostęp konretnych akcji/kontrolerów, więcej: https://docs.microsoft.com/pl-pl/aspnet/core/security/cors?view=aspnetcore-2.1
 
             app.UseMvc();
         }

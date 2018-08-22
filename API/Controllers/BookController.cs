@@ -31,4 +31,6 @@ namespace API.Controllers
     }
 }
 
-/// W API nie kontaktujemy się z DB (np. nie używamy linq) - wykorzystujemy metody DALLibrary które kontaktują się z DB
+/// W API nie kontaktujemy się z DB - wykorzystujemy metody DALLibrary które kontaktują się z DB
+/// Aby móc działać z zewn. projektami musisz skonfigurować CORS https://docs.microsoft.com/en-us/aspnet/web-api/overview/security/enabling-cross-origin-requests-in-web-api
+/// Dla cora`a: https://docs.microsoft.com/pl-pl/aspnet/core/security/cors?view=aspnetcore-2.1
