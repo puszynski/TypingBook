@@ -12,13 +12,14 @@ namespace API.Controllers
         private readonly IBookRepository _bookRepository;
         public BookController(IBookRepository bookRepository) => _bookRepository = bookRepository;
 
-
+        // api/book/
         [HttpGet]
         public IEnumerable<Book> Get()
         {
             return _bookRepository.Get();
         }
 
+        // api/book/1
         [HttpGet("{id}")]
         public IActionResult Get(int id)
         {
@@ -27,6 +28,25 @@ namespace API.Controllers
                 return NotFound();
 
             return Ok(book);
+        }
+
+        // api/book/GetBookContent/1
+        [HttpGet("GetBookContent/{id}")]
+        public IActionResult GetBookContent(int id)
+        {
+            var book = _bookRepository.Get(id);
+            if (book == null)
+                return NotFound();
+
+            return Ok(book.Content);
+        }
+
+
+        // GET book/test
+        [HttpGet("test")]
+        public IEnumerable<string> GetTest()
+        {
+            return new string[] { "Laptop", "Smart TV", "Smart Phone", "Tablet" };
         }
     }
 }
