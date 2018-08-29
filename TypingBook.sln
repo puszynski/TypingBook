@@ -11,7 +11,9 @@ Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "UI", "UI", "{9B85A9AD-3FE8-
 EndProject
 Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "RazorMVC.UI", "RazorMVC.UI\RazorMVC.UI.csproj", "{ED6F6951-9AF2-45AC-9552-4E5E2CC9AA3F}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Razor.UI", "Razor.UI\Razor.UI.csproj", "{0DCE8183-4221-4D41-A753-4ADC6CE25380}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Razor.UI", "Razor.UI\Razor.UI.csproj", "{0DCE8183-4221-4D41-A753-4ADC6CE25380}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "UILibrary", "UILibrary\UILibrary.csproj", "{1B5CD465-54A1-437E-8590-E104421F0309}"
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
@@ -35,6 +37,10 @@ Global
 		{0DCE8183-4221-4D41-A753-4ADC6CE25380}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{0DCE8183-4221-4D41-A753-4ADC6CE25380}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{0DCE8183-4221-4D41-A753-4ADC6CE25380}.Release|Any CPU.Build.0 = Release|Any CPU
+		{1B5CD465-54A1-437E-8590-E104421F0309}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{1B5CD465-54A1-437E-8590-E104421F0309}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{1B5CD465-54A1-437E-8590-E104421F0309}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{1B5CD465-54A1-437E-8590-E104421F0309}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE
@@ -42,6 +48,7 @@ Global
 	GlobalSection(NestedProjects) = preSolution
 		{ED6F6951-9AF2-45AC-9552-4E5E2CC9AA3F} = {9B85A9AD-3FE8-4228-A181-A1FA92D32575}
 		{0DCE8183-4221-4D41-A753-4ADC6CE25380} = {9B85A9AD-3FE8-4228-A181-A1FA92D32575}
+		{1B5CD465-54A1-437E-8590-E104421F0309} = {9B85A9AD-3FE8-4228-A181-A1FA92D32575}
 	EndGlobalSection
 	GlobalSection(ExtensibilityGlobals) = postSolution
 		SolutionGuid = {B805F79D-8927-4365-9224-D09625ABFA4F}
