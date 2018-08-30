@@ -9,12 +9,12 @@ using Microsoft.AspNetCore.HttpsPolicy;
 using Microsoft.AspNetCore.Mvc;
 using Microsoft.Extensions.Configuration;
 using Microsoft.Extensions.DependencyInjection;
+using UILibrary.Helpers;
 
 namespace RazorMVC.UI
 {
     public class Startup
-    {
-        public Startup(IConfiguration configuration)
+    {public Startup(IConfiguration configuration)
         {
             Configuration = configuration;
         }
@@ -24,13 +24,18 @@ namespace RazorMVC.UI
         // This method gets called by the runtime. Use this method to add services to the container.
         public void ConfigureServices(IServiceCollection services)
         {
+            #region IoC
+            services.AddSingleton<IDeserializeJsonHelper, DeserializeJsonHelper>();
+
+            // More: https://www.infoworld.com/article/3232636/application-development/how-to-use-dependency-injection-in-aspnet-core.html
+            #endregion
+
             services.Configure<CookiePolicyOptions>(options =>
             {
                 // This lambda determines whether user consent for non-essential cookies is needed for a given request.
                 options.CheckConsentNeeded = context => true;
                 options.MinimumSameSitePolicy = SameSiteMode.None;
             });
-
 
             services.AddMvc().SetCompatibilityVersion(CompatibilityVersion.Version_2_1);
         }
