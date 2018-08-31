@@ -13,7 +13,9 @@ Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "RazorMVC.UI", "RazorMVC.UI\
 EndProject
 Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Razor.UI", "Razor.UI\Razor.UI.csproj", "{0DCE8183-4221-4D41-A753-4ADC6CE25380}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "UILibrary", "UILibrary\UILibrary.csproj", "{1B5CD465-54A1-437E-8590-E104421F0309}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "UILibrary", "UILibrary\UILibrary.csproj", "{1B5CD465-54A1-437E-8590-E104421F0309}"
+EndProject
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "XUnitTests", "XUnitTests\XUnitTests.csproj", "{2405CC2A-DC9A-4842-94ED-FC37B80FF066}"
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
@@ -41,6 +43,10 @@ Global
 		{1B5CD465-54A1-437E-8590-E104421F0309}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{1B5CD465-54A1-437E-8590-E104421F0309}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{1B5CD465-54A1-437E-8590-E104421F0309}.Release|Any CPU.Build.0 = Release|Any CPU
+		{2405CC2A-DC9A-4842-94ED-FC37B80FF066}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{2405CC2A-DC9A-4842-94ED-FC37B80FF066}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{2405CC2A-DC9A-4842-94ED-FC37B80FF066}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{2405CC2A-DC9A-4842-94ED-FC37B80FF066}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE
