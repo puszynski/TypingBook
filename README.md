@@ -1,4 +1,4 @@
-# TypingBook - skill up by typing your favorite english books;
+# TypingBook - skill up by typing your favorite books!
 Typing application using .NET Core 
 
 Application architecture was formed from .NET CORE API, .NET Library for DAL (using SQlite data base and dapper ORM);
