@@ -7,16 +7,13 @@ namespace RazorMVC.UI.Controllers
 {
     public class HomeController : Controller
     {
-        private readonly DeserializeJsonHelper _deserializeJsonHelper = new DeserializeJsonHelper();
+        private readonly IDeserializeJsonHelper _deserializeJsonHelper; // IoC: field + ctor + Startup.cs
+        public HomeController(IDeserializeJsonHelper deserializeJsonHelper) => _deserializeJsonHelper = deserializeJsonHelper; //ctor
 
         public IActionResult Index()
         {
-            // get data from API:
             var apiUrl = "http://localhost:5000/api/book/1";
             var modelFromAPI = _deserializeJsonHelper.DeserializeJsonData<Book>(apiUrl);
-
-            // ToDo - podzielić na partie Content - i czy get`em czy postem? - A może w ViewModel? pobierasz całość a wysyłasz jako array/liste rozdzielonych stringów?; Albo metoda z helpera?
-
 
             return View(modelFromAPI);
         }

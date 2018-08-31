@@ -4,7 +4,7 @@ using System.Net;
 
 namespace UILibrary.Helpers
 {
-    public class DeserializeJsonHelper
+    public class DeserializeJsonHelper : IDeserializeJsonHelper
     {
         public T DeserializeJsonData<T>(string url) where T : new()
         {
