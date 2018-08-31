@@ -8,11 +8,7 @@ namespace RazorMVC.UI.Controllers
     public class HomeController : Controller
     {
         private readonly IDeserializeJsonHelper _deserializeJsonHelper; // IoC: field + ctor + Startup.cs
-
-        public HomeController(IDeserializeJsonHelper deserializeJsonHelper)
-        {
-            _deserializeJsonHelper = deserializeJsonHelper;
-        }
+        public HomeController(IDeserializeJsonHelper deserializeJsonHelper) => _deserializeJsonHelper = deserializeJsonHelper; //ctor
 
         public IActionResult Index()
         {

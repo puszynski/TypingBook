@@ -25,8 +25,12 @@ namespace RazorMVC.UI
         public void ConfigureServices(IServiceCollection services)
         {
             #region IoC
+
             services.AddSingleton<IDeserializeJsonHelper, DeserializeJsonHelper>();
 
+            // Singleton: This implies only a single instance will be created and shared by all consumers.
+            // Scoped: This implies that one instance per scope(i.e., one instance per request to the application) will be created.
+            // Transient: This implies that the components will not be shared but will be created each time they are requested.
             // More: https://www.infoworld.com/article/3232636/application-development/how-to-use-dependency-injection-in-aspnet-core.html
             #endregion
 

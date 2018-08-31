@@ -14,8 +14,6 @@ namespace API
 {
     public class Startup
     {
-        readonly BookRepository _bookRepository = new BookRepository();
-
         public Startup(IConfiguration configuration)
         {
             Configuration = configuration;
@@ -27,8 +25,8 @@ namespace API
         public void ConfigureServices(IServiceCollection services)
         {
             services.AddMvc();
-            services.AddCors(); // umożliwia dostęp do danych z zewn. projektów
-            services.AddSingleton(typeof(IBookRepository), _bookRepository);
+            services.AddCors(); // add access to outer aps (e.g. APIs)
+            services.AddSingleton<IBookRepository, BookRepository>();
         }
 
         // This method gets called by the runtime. Use this method to configure the HTTP request pipeline.

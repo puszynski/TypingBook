@@ -10,7 +10,7 @@ namespace API.Controllers
     public class BookController : Controller
     {
         private readonly IBookRepository _bookRepository;
-        public BookController(IBookRepository bookRepository) => _bookRepository = bookRepository;
+        public BookController(IBookRepository bookRepository) => _bookRepository = bookRepository; // ctor :)
 
         // api/book/
         [HttpGet]
