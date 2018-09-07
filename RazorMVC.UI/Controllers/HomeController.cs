@@ -32,6 +32,13 @@ namespace RazorMVC.UI.Controllers
             return View();
         }
 
+        public IActionResult ModalAbout() //ToDO
+        {            
+            ViewData["Message"] = "Your application description page.";
+
+            return View("ModalMode");
+        }
+
         public IActionResult Privacy()
         {
             return View();
