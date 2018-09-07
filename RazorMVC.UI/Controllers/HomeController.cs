@@ -8,13 +8,19 @@ namespace RazorMVC.UI.Controllers
     public class HomeController : Controller
     {
         private readonly IDeserializeJsonHelper _deserializeJsonHelper; // IoC: field + ctor + Startup.cs
-        public HomeController(IDeserializeJsonHelper deserializeJsonHelper) => _deserializeJsonHelper = deserializeJsonHelper; //ctor
 
+        public HomeController(IDeserializeJsonHelper deserializeJsonHelper) => _deserializeJsonHelper = deserializeJsonHelper;
+        
         public IActionResult Index()
         {
             var apiUrl = "http://localhost:5000/api/book/1";
             var modelFromAPI = _deserializeJsonHelper.DeserializeJsonData<Book>(apiUrl);
 
+            var msgFromExtensionMethod = _deserializeJsonHelper.HelloFromExtensionMethod();
+
+            @ViewBag.ValidateCaps = false;
+            @ViewBag.MoveForwardWhenWrong = false;
+                       
             return View(modelFromAPI);
         }
 
@@ -24,6 +30,13 @@ namespace RazorMVC.UI.Controllers
             ViewData["Message"] = "Your application description page.";
 
             return View();
+        }
+
+        public IActionResult ModalAbout() //ToDO
+        {            
+            ViewData["Message"] = "Your application description page.";
+
+            return View("ModalMode");
         }
 
         public IActionResult Privacy()
