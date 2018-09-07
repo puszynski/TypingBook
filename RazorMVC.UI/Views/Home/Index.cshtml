@@ -8,46 +8,11 @@
 <h1>@Model.Content</h1>
 <small>@Model.Title, @Model.Author</small>
 
-Validate CAPS: <input type="checkbox" checked="@ViewBag.ValidateCaps" />
-Move forward when wrong: <input type="checkbox" checked="@ViewBag.MoveForwardWhenWrong" />
 
-
-@if (ViewBag.ValidateCaps)
-{
-    <p>When typing, pay attenton to Upper/lower case</p> //przenieść do chmurki
-}
-else
-{
-    <p>When typing, use upper ot lower case - it doesnt matter</p> //przenieść do chmurki
-}
-
-
-
-<script type="text/javascript">
-    document.onkeydown = function (event) {
-        var key_press = String.fromCharCode(event.keyCode);
-        var key_code = event.keyCode;
-
-        document.getElementById('keyPressed').innerHTML = key_press;
-        document.getElementById('keyCode').innerHTML = key_code;
-
-        var status = document.getElementById('keyboardEventStatus');
-        status.innerHTML = "DOWN event fired for: " + key_press;
-    };
-
-    document.onkeyup = function (event) {
-        var key_press = String.fromCharCode(event.keyCode);
-        var status = document.getElementById('keyboardEventStatus');
-        status.innerHTML = "UP event fired for: " + key_press;
-    };
-</script>
-
-
-<h2>onkeydown - onkeyup</h2>
-    Key pressed: <span id="keyPressed"/><br/>
-    Key code: <span id="keyCode"/><br/>
-    <p id="keyboardEventStatus">Keyboard event status</p>
-
+<details>
+    <summary><small>Click me!</small></summary>
+    <small>TypingBook - and example of HTML5</small>
+</details>
 
 
 
