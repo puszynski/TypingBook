@@ -3,8 +3,6 @@ Microsoft Visual Studio Solution File, Format Version 12.00
 # Visual Studio 15
 VisualStudioVersion = 15.0.27703.2042
 MinimumVisualStudioVersion = 10.0.40219.1
-Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "DALLibrary", "DALLibrary\DALLibrary.csproj", "{880D1EB6-2485-47FD-90B3-8BCBCC9DF2D8}"
-EndProject
 Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "API", "API\API.csproj", "{926356C3-F125-4037-884A-5934B2707AD6}"
 EndProject
 Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "UI", "UI", "{9B85A9AD-3FE8-4228-A181-A1FA92D32575}"
@@ -23,10 +21,6 @@ Global
 		Release|Any CPU = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(ProjectConfigurationPlatforms) = postSolution
-		{880D1EB6-2485-47FD-90B3-8BCBCC9DF2D8}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
-		{880D1EB6-2485-47FD-90B3-8BCBCC9DF2D8}.Debug|Any CPU.Build.0 = Debug|Any CPU
-		{880D1EB6-2485-47FD-90B3-8BCBCC9DF2D8}.Release|Any CPU.ActiveCfg = Release|Any CPU
-		{880D1EB6-2485-47FD-90B3-8BCBCC9DF2D8}.Release|Any CPU.Build.0 = Release|Any CPU
 		{926356C3-F125-4037-884A-5934B2707AD6}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
 		{926356C3-F125-4037-884A-5934B2707AD6}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{926356C3-F125-4037-884A-5934B2707AD6}.Release|Any CPU.ActiveCfg = Release|Any CPU
