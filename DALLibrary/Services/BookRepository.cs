@@ -12,7 +12,7 @@ namespace DALLibrary.Services
     /// </summary>
     public class BookRepository : IBookRepository
     {
-        private readonly string _connectionString = "Data Source=C:/Users/puszy/Documents/PROJECTS/TypingBook 0.2/TypingBook/SQLiteDB.db;Version=3";
+        private readonly string _connectionString = "Data Source=C:/TypingBook/SQLiteDB.db;Version=3";
 
 
         public IEnumerable<Book> Get()
