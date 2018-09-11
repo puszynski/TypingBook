@@ -21,5 +21,10 @@ namespace UILibrary.Helpers
                 return !string.IsNullOrEmpty(json_data) ? JsonConvert.DeserializeObject<T>(json_data) : new T();
             }
         }
+
+        public void TestToExt()
+        {
+            var x = "123";
+        }
     }
 }
