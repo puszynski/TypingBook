@@ -1,4 +1,5 @@
-﻿
+﻿using DALLibrary.Services;
+
 namespace DALLibrary.DomainModel
 {
     public class Book
