@@ -1,6 +1,7 @@
 ﻿using System.Collections.Generic;
 using System.Data;
 using System.Data.SQLite;
+using System.Linq;
 using DALLibrary.DomainModel;
 using Dapper;
 
@@ -14,7 +15,26 @@ namespace DALLibrary.Services
     {
         private readonly string _connectionString = "Data Source=C:/TypingBook/SQLiteDB.db;Version=3";
 
+        #region logic on db    
+        public IQueryable<Book> EditContent()
+        {
+            //ToDo (just example)
+            return null;
+        }
 
+        public IQueryable<Book> CreateNewBook()
+        {
+            return null;
+        }
+
+        public void Save(IQueryable<Book> booksQuery)
+        {
+            //ToDo - save all;
+        }
+        #endregion
+
+
+        #region get from db
         public IEnumerable<Book> Get()
         {
             using (IDbConnection cnn = new SQLiteConnection(_connectionString))
@@ -24,7 +44,6 @@ namespace DALLibrary.Services
             }
         }
 
-
         public Book Get(int id)
         {
             using (IDbConnection cnn = new SQLiteConnection(_connectionString))
@@ -33,6 +52,6 @@ namespace DALLibrary.Services
                 return output;
             }
         }
-
+        #endregion
     }
 }
