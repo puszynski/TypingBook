@@ -8,17 +8,10 @@ namespace BLLLibrary.Helpers
 {
     public class BookHelper
     {
-        public BookViewModel DivideBook(Book book)
+        public List<string> DivideBook(string bookContent)
         {
-            var dividedContent = new List<string>();
+            var result = new List<string>();
             //ToDo book.Content
-
-            var result = new BookViewModel() {
-                ID = book.ID,
-                TitleAndAuthors = book.Title + " " + book.Author,
-                DividedContent = dividedContent
-            };
-
             return result;
         }
     }
