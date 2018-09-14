@@ -32,8 +32,8 @@ namespace XUnitTests
             };
             // Act
             var testingValue = book.TitleAndAuthor();
-            // Asser
+            // Assert
             Assert.Equal(book.Title + " " +book.Author, testingValue);
         }
-    }
+    }    
 }
