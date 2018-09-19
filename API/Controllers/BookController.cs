@@ -1,4 +1,5 @@
 ﻿using System.Collections.Generic;
+using BLLLibrary.Helpers;
 using DALLibrary.DomainModel;
 using DALLibrary.Services;
 using Microsoft.AspNetCore.Mvc;
@@ -10,6 +11,8 @@ namespace API.Controllers
     public class BookController : Controller
     {
         private readonly IBookRepository _bookRepository;
+        private readonly BookHelper _bookHelper = new BookHelper();
+
         public BookController(IBookRepository bookRepository) => _bookRepository = bookRepository; // ctor :)
         
         // całość książki poprzez ID: api/book/1
@@ -30,16 +33,14 @@ namespace API.Controllers
         {
             var book = _bookRepository.Get(id);
             if (book == null)
-                return NotFound();
+                return NotFound();            
 
-            // Divide content
-            var bookPortions = DivideBook(book);
+            var dividedContent = _bookHelper.DivideBook(book.Content);
 
             return Ok(book);
         }
     }
 }
 
-/// W API nie kontaktujemy się z DB - wykorzystujemy metody DALLibrary które kontaktują się z DB
-/// Aby móc działać z zewn. projektami musisz skonfigurować CORS https://docs.microsoft.com/en-us/aspnet/web-api/overview/security/enabling-cross-origin-requests-in-web-api
-/// Dla cora`a: https://docs.microsoft.com/pl-pl/aspnet/core/security/cors?view=aspnetcore-2.1
+/// W API nie kontaktujemy się z DB - wykorzystujemy do tego 
+/// Aby móc działać z zewn. projektami musisz skonfigurować CORS (zrobione);
