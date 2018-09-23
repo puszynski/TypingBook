@@ -1,4 +1,5 @@
 ﻿using System.Collections.Generic;
+using System.Threading.Tasks;
 using BLLLibrary.Helpers;
 using DALLibrary.DomainModel;
 using DALLibrary.Services;
@@ -7,19 +8,32 @@ using Microsoft.AspNetCore.Mvc;
 namespace API.Controllers
 {
     [Produces("application/json")]
-    [Route("api/Book")]
+    [Route("api/[controller]/[action]")]
+    [ApiController]
     public class BookController : Controller
     {
         private readonly IBookRepository _bookRepository;
         private readonly BookHelper _bookHelper = new BookHelper();
 
-        public BookController(IBookRepository bookRepository) => _bookRepository = bookRepository; // ctor :)
-        
-        // całość książki poprzez ID: api/book/1
-        [HttpGet("{id}")]
-        public IActionResult Get(int id)
+        public BookController(IBookRepository bookRepository) => _bookRepository = bookRepository;
+
+        // http://localhost:5000/api/book/documentation
+        // (Get API documentation)
+        [HttpGet]
+        public IActionResult Documentation()
         {
-            var book = _bookRepository.Get(id);
+            var info = "Please use: ../api/book/get/1 to get book object; Please use ../api/book/get/2/1 to get first divided book content";
+            return Ok(info);
+        }
+
+        // http://localhost:5000/api/book/get/2 <- dlaczego nie działa dla api/book/1 ????
+        // Get all book data by ID
+        [HttpGet("{id}")]
+        [ProducesResponseType(404)]
+        public async Task<ActionResult<Book>> Get(int id)
+        {
+            var book = await _bookRepository.GetAsync(id);
+
             if (book == null)
                 return NotFound();
 
@@ -27,20 +41,24 @@ namespace API.Controllers
         }
 
 
-        // całość książki poprzez ID w porcjach: api/book/1/1
+        // http://localhost:5000/api/book/get/2/1
+        // Get all book data by ID
         [HttpGet("{id}/{num}")]
-        public IActionResult GetByPortion(int id, int num)
+        [ProducesResponseType(404)]
+        public async Task<ActionResult<Book>> Get(int id, int num)
         {
-            var book = _bookRepository.Get(id);
+            var book = await _bookRepository.GetAsync(id);
             if (book == null)
-                return NotFound();            
+                return NotFound();
 
             var dividedContent = _bookHelper.DivideBook(book.Content);
+            if (dividedContent[num] == null)
+                return NotFound();
 
-            return Ok(book);
+            return Ok(dividedContent[num]);
         }
     }
 }
 
 /// W API nie kontaktujemy się z DB - wykorzystujemy do tego 
-/// Aby móc działać z zewn. projektami musisz skonfigurować CORS (zrobione);
+/// Aby móc działać z zewn. projektami musiałeś skonfigurować CORS;

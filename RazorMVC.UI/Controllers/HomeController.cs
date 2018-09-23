@@ -16,7 +16,7 @@ namespace RazorMVC.UI.Controllers
 
         public IActionResult Index()
         {
-            var apiUrl = "http://localhost:5000/api/book/1";
+            var apiUrl = "http://localhost:5000/api/book/get/1";
             var modelFromAPI = _deserializeJsonHelper.DeserializeJsonData<Book>(apiUrl);
 
             var msgFromExtensionMethod = _deserializeJsonHelper.HelloFromExtensionMethod();

@@ -2,6 +2,7 @@
 using System.Data;
 using System.Data.SQLite;
 using System.Linq;
+using System.Threading.Tasks;
 using DALLibrary.DomainModel;
 using Dapper;
 
@@ -49,6 +50,15 @@ namespace DALLibrary.Services
             using (IDbConnection cnn = new SQLiteConnection(_connectionString))
             {
                 var output = cnn.QuerySingle<Book>($"select * from Book where ID = {id}", new DynamicParameters());
+                return output;
+            }
+        }
+
+        public async Task<Book> GetAsync(int id)
+        {
+            using (IDbConnection cnn = new SQLiteConnection(_connectionString))
+            { 
+                var output = await cnn.QueryFirstAsync<Book>($"select * from Book where ID = {id}", new DynamicParameters());
                 return output;
             }
         }
