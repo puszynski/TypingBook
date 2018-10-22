@@ -14,9 +14,9 @@ namespace RazorMVC.UI.Controllers
 
         public HomeController(IDeserializeJsonHelper deserializeJsonHelper) => _deserializeJsonHelper = deserializeJsonHelper;
 
-        public IActionResult Index()
+        public IActionResult Index(int bookID = 1, int bookPage = 1)
         {
-            var apiUrl = "http://localhost:5000/api/book/get/1";
+            var apiUrl = "http://localhost:5000/api/book/get/" + bookID.ToString() + "/" + bookPage.ToString();
             var modelFromAPI = _deserializeJsonHelper.DeserializeJsonData<Book>(apiUrl);
 
             var msgFromExtensionMethod = _deserializeJsonHelper.HelloFromExtensionMethod();

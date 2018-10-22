@@ -55,7 +55,7 @@ namespace API.Controllers
             if (dividedContent[num] == null)
                 return NotFound();
 
-            return Ok(dividedContent[num]);
+            return Ok(dividedContent[num-1]);
         }
     }
 }
