@@ -18,7 +18,7 @@ namespace API.Controllers
         public BookController(IBookRepository bookRepository) => _bookRepository = bookRepository;
 
         // http://localhost:5000/api/book/documentation
-        // (Get API documentation)
+        // API documentation
         [HttpGet]
         public IActionResult Documentation()
         {
@@ -26,7 +26,7 @@ namespace API.Controllers
             return Ok(info);
         }
 
-        // http://localhost:5000/api/book/get/2 <- dlaczego nie działa dla api/book/1 ????
+        // http://localhost:5000/api/book/get/2
         // Get all book data by ID
         [HttpGet("{id}")]
         [ProducesResponseType(404)]
@@ -55,10 +55,17 @@ namespace API.Controllers
             if (dividedContent[num] == null)
                 return NotFound();
 
-            return Ok(dividedContent[num-1]);
+            var model = new Book() {
+                Author = book.Author,
+                Title = book.Title,
+                ID = book.ID,
+                Content = dividedContent[num - 1]
+            };
+
+            return Ok(model);
         }
     }
 }
 
-/// W API nie kontaktujemy się z DB - wykorzystujemy do tego 
+/// W API nie kontaktujemy się z DB - wykorzystujemy do tego DALLibrary
 /// Aby móc działać z zewn. projektami musiałeś skonfigurować CORS;
