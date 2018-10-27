@@ -22,20 +22,24 @@ namespace RazorMVC.UI.Controllers
             return View(modelFromAPI);
         }
 
-        public IActionResult About()
+        public IActionResult StartUpPage() // make as index?
         {
-            // TODO - About jako okno modalne; Przeźroczystość modali? https://stackoverflow.com/questions/44155471/how-to-create-bootstrap-modal-with-transparent-background https://www.youtube.com/watch?v=YATsfCwwOMM 
-            ViewData["Message"] = "Your application description page.";
-
             return View();
         }
 
-        //TODO
-        public IActionResult ModalAbout()
+        public IActionResult Type(int bookID = 1, int bookPage = 1)
         {
-            ViewData["Message"] = "Your app;ication description page";
+            var apiUrl = "http://localhost:5000/api/book/get/" + bookID.ToString() + "/" + bookPage.ToString();
+            var modelFromAPI = _deserializeJsonHelper.DeserializeJsonData<Book>(apiUrl);
 
-            return View("ModalMode");
+            return View(modelFromAPI);
+        }
+
+        public IActionResult About()
+        {   
+            ViewData["Message"] = "Your application description page.";
+
+            return View();
         }
 
         public IActionResult Privacy()
