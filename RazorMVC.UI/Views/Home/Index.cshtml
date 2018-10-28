@@ -1,9 +1,16 @@
-﻿@model RazorMVC.UI.Models.Book
-
+﻿@model IEnumerable<RazorMVC.UI.Models.AnchorListViewModel>
 @{
-    ViewData["Title"] = "Typing";
+    ViewData["Title"] = "Menu page";
 }
 
 
-<h1>@Model.Content</h1>
-<small><b>@Model.Title</b> by @Model.Author</small>
+    @foreach (var anchor in @Model)
+    {    
+    <input type="button"
+           class="btn btn-default btn-lg btn-block"
+           value="@anchor.TextToDisplay" 
+           onclick="location.href='@Url.Action(anchor.ActionName, anchor.ControllerName)'" />
+    }
+
+
+ToDO - JS to use shortcuts!foreach
