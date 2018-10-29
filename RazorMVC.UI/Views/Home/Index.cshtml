@@ -3,14 +3,35 @@
     ViewData["Title"] = "Menu page";
 }
 
-
-    @foreach (var anchor in @Model)
-    {    
+@foreach (var anchor in @Model)
+{
     <input type="button"
            class="btn btn-default btn-lg btn-block"
-           value="@anchor.TextToDisplay" 
+           value="@anchor.TextToDisplay"
            onclick="location.href='@Url.Action(anchor.ActionName, anchor.ControllerName)'" />
-    }
+}
 
+<div class="well well-lg">
+    <p>Key pressed: <span id="kpressed"></span></p>
+    <p>Key code: <span id="kcode"></span></p>
+</div>
 
-ToDO - JS to use shortcuts!foreach
+<script type="text/javascript">
+    document.onkeydown = function (event) {
+        var key_press = String.fromCharCode(event.keyCode);
+        var key_code = event.keyCode;
+
+        document.getElementById('kpressed').innerHTML = key_press;
+        document.getElementById('kcode').innerHTML = key_code;
+
+        if (key_code === 32) {
+            window.location.href = '@Url.Action("Index", "Typing")';
+        }
+        if (key_code === 16) {
+            window.location.href = '@Url.Action("ChoseBook", "Home")'; // name?
+        }
+        if (key_code === 27) {
+            window.location.href = '@Url.Action("Settings", "Home")'; // ?
+        }
+    };
+</script>
