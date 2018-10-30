@@ -5,5 +5,32 @@
 }
 
 
-<h1>@Model.Content</h1>
+<h2 id="typed_content"></h2>
+<h1 id="book_content">@Model.Content</h1>
+
 <small><b>@Model.Title</b> by @Model.Author</small>
+
+<div class="alert alert-primary">
+    keycode:<span id="kc"></span><br />
+    first char:<span id="fc"></span>
+</div>
+
+<script type="text/javascript">
+    document.onkeydown = function (event) {
+        var book_content = document.getElementById('book_content').textContent;
+        var typed_content = "";
+
+        document.getElementById('kc').innerHTML = String.fromCharCode(event.keyCode);
+        document.getElementById('fc').innerHTML = book_content.charAt(0);
+
+        if (String.fromCharCode(event.keyCode) === book_content.charAt(0).toUpperCase()) { // uwzględnianie wielkości liter - jak uzyskać znaki specialne, np ! ???
+            typed_content += book_content.charAt(0); // nie dodaje do istniejącej.. 
+            document.getElementById('typed_content').innerHTML = typed_content;
+            document.getElementById('book_content').innerHTML = book_content.substr(1);         
+        }
+    };
+</script>
+
+
+
+// ToCheck: https://www.youtube.com/watch?v=_Szdctv38Ow
