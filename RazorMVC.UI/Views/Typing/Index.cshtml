@@ -11,25 +11,42 @@
 <small><b>@Model.Title</b> by @Model.Author</small>
 
 <div class="alert alert-primary">
-    keycode:<span id="kc"></span><br />
-    first char:<span id="fc"></span>
+    keycode: "<span id="kc"></span>"<br />
+    first char: "<span id="fc"></span>"
 </div>
 
 <script type="text/javascript">
-    document.onkeydown = function (event) {
-        var book_content = document.getElementById('book_content').textContent;
-        var typed_content = "";
+    document.onkeypress = function (e) {
+        e = e || window.event;
 
-        document.getElementById('kc').innerHTML = String.fromCharCode(event.keyCode);
+        var book_content = document.getElementById('book_content').textContent;
+        //$(#book_content).textContent;
+
+        document.getElementById('kc').innerHTML = String.fromCharCode(e.keyCode);
         document.getElementById('fc').innerHTML = book_content.charAt(0);
 
-        if (String.fromCharCode(event.keyCode) === book_content.charAt(0).toUpperCase()) { // uwzględnianie wielkości liter - jak uzyskać znaki specialne, np ! ???
-            typed_content += book_content.charAt(0); // nie dodaje do istniejącej.. 
-            document.getElementById('typed_content').innerHTML = typed_content;
-            document.getElementById('book_content').innerHTML = book_content.substr(1);         
-        }
+        console.log(e.which); // najprymitywniejszy sposób podglądania parametrów
+        console.log(book_content.charAt(0));
+        console.log('koniec wpisu');
+
+        if (String.fromCharCode(e.which /*|| e.keyCode*/) === book_content.charAt(0)) {   
+            //debugger; // postawi breakpoint`a w tym miejscu kodu
+
+            document.getElementById('typed_content').innerHTML += book_content.charAt(0);
+            document.getElementById('book_content').innerHTML = book_content.substr(1);
+        } // jakby brakowalo petli - po wyjsciu if`a
+        
     };
+
+    //document.onkeypress = function (evt) { // wzór
+    //    evt = evt || window.event;
+    //    var charCode = evt.which || evt.keyCode;
+    //    var charTyped = String.fromCharCode(charCode);
+    //    alert("Character typed: " + charTyped);
+    //};
 </script>
+
+
 
 
 
