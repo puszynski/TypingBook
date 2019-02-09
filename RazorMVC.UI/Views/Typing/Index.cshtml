@@ -5,8 +5,8 @@
 }
 
 
-<h2 id="typed_content"></h2>
-<h1 id="book_content">@Model.Content</h1>
+<h1 class="aftertype" id="typed_content"></h1>
+<h1 class="beforetype" id="book_content">@Model.Content</h1>
 
 <small><b>@Model.Title</b> by @Model.Author</small>
 
@@ -20,22 +20,22 @@
         e = e || window.event;
 
         var book_content = document.getElementById('book_content').textContent;
-        //$(#book_content).textContent;
+        //book_content = $('#book_content').textContent;
 
         document.getElementById('kc').innerHTML = String.fromCharCode(e.keyCode);
         document.getElementById('fc').innerHTML = book_content.charAt(0);
 
-        console.log(e.which); // najprymitywniejszy sposób podglądania parametrów
-        console.log(book_content.charAt(0));
-        console.log('koniec wpisu');
 
         if (String.fromCharCode(e.which /*|| e.keyCode*/) === book_content.charAt(0)) {   
-            //debugger; // postawi breakpoint`a w tym miejscu kodu
 
             document.getElementById('typed_content').innerHTML += book_content.charAt(0);
             document.getElementById('book_content').innerHTML = book_content.substr(1);
-        } // jakby brakowalo petli - po wyjsciu if`a
-        
+
+            if (document.getElementById('book_content').innerHTML === '') {
+                // ToDo - przekierowanie do metody akcji => do następnej puli tekstu
+                // window.location.replace($('.report-selector option:selected').data('url')); // jquery // url - jakoś trzeba go budować w modelu
+            }
+        }        
     };
 
     //document.onkeypress = function (evt) { // wzór
